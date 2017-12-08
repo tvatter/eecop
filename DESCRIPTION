@@ -1,0 +1,15 @@
+Package: gmmcop
+Type: Package
+Title: Copula-based solutions to moment equations
+Version: 0.0.1
+Date: 2017-06-01
+Authors@R: person(given = "Thibault", family = "Vatter", email = "thibault.vatter@gmail.com", role = c("aut", "cre"))
+Description: Copula-based solutions to moment equations.
+License: GPL-3 | file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+  kdevine,
+  kdecopula
+RoxygenNote: 6.0.1
+Roxygen: list(markdown = TRUE)
