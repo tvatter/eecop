@@ -1,3 +1,3 @@
-# gmmcop
+# eecop
 
-Copula-based solutions to moment equations
+Solving estimating equations with copulas
