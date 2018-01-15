@@ -1,15 +1,20 @@
-Package: gmmcop
+Package: eecop
 Type: Package
-Title: Copula-based solutions to moment equations
+Title: Copula-Based Solutions to Estimating Equations
 Version: 0.0.1
-Date: 2017-06-01
-Authors@R: person(given = "Thibault", family = "Vatter", email = "thibault.vatter@gmail.com", role = c("aut", "cre"))
-Description: Copula-based solutions to moment equations.
+Date: 2018-01-15
+Authors@R: c(
+        person("Thomas", "Nagler",, "info@vinecopulib.org", role = c("aut")),
+        person("Thibault", "Vatter",, "info@vinecopulib.org", role = c("aut", "cre"))
+        )
+Description: Copula-based solutions to estimating equations.
 License: GPL-3 | file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports:
+  assertthat,
   kdevine,
-  kdecopula
+  rvinecopulib,
+  stats
 RoxygenNote: 6.0.1
 Roxygen: list(markdown = TRUE)

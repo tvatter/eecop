@@ -1,2 +1,14 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^cran-comments\.md$
+^.*\.Rprofile$
+^README\.Rmd$
+^.*\.html$
+^\.travis\.yml$
+^appveyor\.yml$
+^revdep$
+\.o$
+\.so$
+\.dll$
+^src/update_vinecopulib\.sh$
+^docs$
