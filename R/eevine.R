@@ -320,10 +320,10 @@ predict.eevine <- function(object, newdata = NULL, what = "mean", ...) {
   
   d <- length(object$margin_models)
   if (!is.null(newdata)) {
-    assert_that((is.vector(newdata) && length(newdata) == d - 1) || 
+    assert_that((is.vector(newdata) && d == 2) || 
                   (is.matrix(newdata) && ncol(newdata) == d - 1))
     if (is.vector(newdata)) {
-      newdata <- matrix(newdata, nrow = 1)
+      newdata <- matrix(newdata, ncol = 1)
     }
   } else {
     newdata <- sapply(2:d, function(k) object$margin_models[[k]]$x_cc)
