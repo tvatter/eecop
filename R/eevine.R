@@ -97,11 +97,11 @@ eevine <- function(x, y, ...) {
   if (is.null(args[["mult"]])) 
     args[["mult"]] <- 1
   if (is.null(args[["selcrit"]])) 
-    args[["selcrit"]] <- "bic"
+    args[["selcrit"]] <- "aic"
   if (is.null(args[["presel"]])) 
     args[["presel"]] <- TRUE
   if (is.null(args[["trunc_lvl"]])) {
-    args[["trunc_lvl"]] <- NA
+    args[["trunc_lvl"]] <- Inf
   } else {
     assert_that(is.scalar(args[["trunc_lvl"]]) && 
                   (is.na(args[["trunc_lvl"]]) || is.count(args[["trunc_lvl"]])))
