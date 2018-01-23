@@ -83,7 +83,7 @@ eevine <- function(x, y, ...) {
   ## default arguments
   args <- list(...)
   if (is.null(args[["mult_1d"]])) 
-    args[["mult_1d"]] <- log(d + 1)
+    args[["mult_1d"]] <- 1
   if (is.null(args[["xmin"]])) 
     args[["xmin"]] <- rep(-Inf, d)
   if (is.null(args[["xmax"]])) 
@@ -306,7 +306,7 @@ getcxy <- function(x, uy, object) {
 #' @export
 predict.eevine <- function(object, newdata = NULL, what = "mean", ...) {
   
-  assert_that(all(is.element(what, c("mean", "sd", "var", "quantile"))))
+  assert_that(all(is.element(what, c("mean", "sd", "var", "quantile", "cxy"))))
   what <- unique(what)
   
   if (any(what == "quantile")) {
@@ -338,7 +338,8 @@ predict.eevine <- function(object, newdata = NULL, what = "mean", ...) {
            mean = conditional_mean(y, cxy), 
            sd = sqrt(conditional_variance(y, cxy)), 
            var = conditional_variance(y, cxy), 
-           quantile = conditional_quantile(y, cxy, tau))
+           quantile = conditional_quantile(y, cxy, tau),
+           cxy = cxy)
   }
   
   if (length(what) > 1) {
