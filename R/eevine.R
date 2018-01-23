@@ -95,7 +95,7 @@ eevine <- function(x, y, ...) {
   if (is.null(args[["nonpar_method"]])) 
     args[["nonpar_method"]] <- "quadratic"
   if (is.null(args[["mult"]])) 
-    args[["mult"]] <- 1
+    args[["mult"]] <- rep(1, d - 1)
   if (is.null(args[["selcrit"]])) 
     args[["selcrit"]] <- "aic"
   if (is.null(args[["presel"]])) 
@@ -150,7 +150,7 @@ eevine <- function(x, y, ...) {
                         family_set = args[["family_set"]], 
                         par_method = args[["par_method"]], 
                         nonpar_method = args[["nonpar_method"]], 
-                        mult = args[["mult"]], 
+                        mult = args[["mult"]][k - 1], 
                         selcrit = args[["selcrit"]], 
                         presel = args[["presel"]], 
                         trunc_lvl = ifelse(is.na(args[["trunc_lvl"]]), 
