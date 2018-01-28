@@ -63,6 +63,7 @@
 #' @importFrom assertthat assert_that is.number is.count is.scalar
 #' @importFrom kdevine kde1d pkde1d
 #' @importFrom rvinecopulib bicop vinecop hbicop dbicop
+#' @importFrom acepack ace
 #' @export
 eevine <- function(x, y, ...) {
   
@@ -97,7 +98,7 @@ eevine <- function(x, y, ...) {
   if (is.null(args[["mult"]])) 
     args[["mult"]] <- rep(1, d - 1)
   if (is.null(args[["selcrit"]])) 
-    args[["selcrit"]] <- "aic"
+    args[["selcrit"]] <- "loglik"
   if (is.null(args[["presel"]])) 
     args[["presel"]] <- TRUE
   if (is.null(args[["trunc_lvl"]])) {
@@ -131,11 +132,13 @@ eevine <- function(x, y, ...) {
   ## estimation of the first tree
   udata <- sapply(1:d, function(k) pkde1d(data[, k], margin_models[[k]]))
   res$first_tree <- lapply(2:d, function(k) {
+    a <- ace(udata[, k], udata[, 1])
     bicop(udata[, c(1, k)], 
           family_set = args[["family_set"]], 
           par_method = args[["par_method"]], 
           nonpar_method = args[["nonpar_method"]], 
-          mult = args[["mult"]][k - 1], 
+          mult = args[["mult"]][k - 1] * 
+            abs(cor(udata[, 1], udata[, k])/cor(a$tx,a$ty)), 
           selcrit = args[["selcrit"]], 
           presel = args[["presel"]], 
           keep_data = args[["keep_data"]], 

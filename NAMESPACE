@@ -3,6 +3,7 @@
 S3method(predict,eevine)
 export(deevine)
 export(eevine)
+importFrom(acepack,ace)
 importFrom(assertthat,assert_that)
 importFrom(assertthat,is.count)
 importFrom(assertthat,is.number)
